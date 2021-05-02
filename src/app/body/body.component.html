@@ -1,0 +1,8 @@
+<h1>Weather App</h1>
+
+<input type="text" name="txtCity" placeholder="Enter a city" [(ngModel)]="txtCity">
+
+<br />
+
+<button type="btnSend">Get Weather</button>
+<button (click)="btnReset()" [disabled]="txtCity===''? true:false">Reset</button>

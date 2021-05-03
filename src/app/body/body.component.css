@@ -1,19 +1,95 @@
+#header {
+  background-color: white;
+  padding: 20px 100px 20px 100px;
+  display: block;
+}
+#logo{
+    cursor: pointer;
+}
+
+#logo img {
+  width: 70px;
+}
+
+#logo img,
+#logo p {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: montserrat;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#logo p {
+  margin: 5px;
+}
+
+#header #logo,
+#header #searchBar {
+  display: inline-block;
+}
+
+#searchBar {
+  right: auto;
+}
+
+#searchBar input {
+  padding: 10px;
+  border-radius: 30px 0 0 30px;
+  outline: none;
+  border: 1px solid gray;
+  vertical-align: middle;
+  font-size: medium;
+  padding-left: 15px;
+}
+
+
+#searchBar #btnSearch,
+#searchBar #btnReset {
+  transition: background-color 0.2s ease;
+  color: white;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+#searchBar #btnSearch {
+  border-radius: 0 30px 30px 0;
+  background-color: rgba(38, 192, 184, 0.432);
+}
+
+#btnSearch:hover {
+  background-color: lightseagreen !important;
+}
+
+#btnReset {
+  border-radius: 0;
+  background-color: gray;
+  border: none;
+}
+
+#btnReset:hover {
+  background-color: lightcoral;
+}
+
 .table,
 .table th,
 .table td {
   border: 1px solid black;
   border-collapse: collapse;
-  padding: 5px 10px ;
+  padding: 5px 10px;
 }
 
 
 .cardWeatherMain {
   width: 70%;
   margin: auto;
+  border-radius: 20px;
 }
 
 
-.mainWeatherIcon, table{
-    width: 100px;
-    margin: auto;
+.mainWeatherIcon,
+table {
+  width: 100px;
+  margin: auto;
 }

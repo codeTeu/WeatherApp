@@ -1,14 +1,28 @@
+<div id="header">
 
-<div>
-  <input type="text" name="txtCity" placeholder="Enter a city" [(ngModel)]="txtCity">
+  <div id="logo">
+    <img src="../assets/images/sun.png" alt="logo">
+    <p>WEATHER<br />APP</p>
+  </div>
 
-  <br />
+  <form action="GET" id="searchBar">
+    <input type="text" name="txtCity" placeholder="Enter a city" [(ngModel)]="txtCity" required>
+    <button mat-flat-button type="reset" id="btnReset" [disabled]="txtCity===''? true:false">
+      <mat-icon>clear</mat-icon>
+    </button>
+    <button mat-flat-button (click)="btnGetWeather()" id="btnSearch">
+      <mat-icon>search</mat-icon>
+    </button>
 
-  <button type="btnSend" (click)="btnGetWeather()">Get Weather</button>
-  <button (click)="btnReset()" [disabled]="txtCity===''? true:false">Reset</button>
+    <!--(click)="btnReset()"-->
+  </form>
 
 </div>
+<!--head done-->
 
+
+<br />
+<br />
 <mat-card class="cardWeatherMain">
   <mat-card-header>
     <mat-card-title>Weather App</mat-card-title>

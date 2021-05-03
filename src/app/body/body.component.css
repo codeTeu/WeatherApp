@@ -1,0 +1,19 @@
+.table,
+.table th,
+.table td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px 10px ;
+}
+
+
+.cardWeatherMain {
+  width: 70%;
+  margin: auto;
+}
+
+
+.mainWeatherIcon, table{
+    width: 100px;
+    margin: auto;
+}

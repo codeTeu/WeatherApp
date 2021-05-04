@@ -3,8 +3,9 @@
   padding: 20px 100px 20px 100px;
   display: block;
 }
-#logo{
-    cursor: pointer;
+
+#logo {
+  cursor: pointer;
 }
 
 #logo img {
@@ -72,24 +73,69 @@
   background-color: lightcoral;
 }
 
-.table,
-.table th,
-.table td {
+#table,
+#table th,
+#table td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 5px 10px;
 }
 
 
-.cardWeatherMain {
+#cardWeatherMain {
+  background-color: white;
+  border-radius: 20px;
   width: 70%;
   margin: auto;
-  border-radius: 20px;
+  padding: 30px;
+
+  display: grid;
+  grid-template-columns: 4;
+  grid-row: auto;
+  grid-template-areas: 
+  "cardLocation  cardLocation  cardTemp cardIcon"
+  "cardData cardData cardData cardData ";
+  
+}
+
+#cardCity {
+  font-size: xx-large;
+  font-family: Impact;
+  font-weight: bold;
+  grid-area: cardCity;
+}
+
+#cardLocation {
+  background-color: wheat;
+  grid-area: cardLocation;
+}
+
+#cardTemp {
+  background-color: teal;
+  grid-area: cardTemp;
+}
+
+#cardIcon {
+  background-color: yellowgreen;
+  grid-area: cardIcon;
+}
+
+#cardData {
+  background-color: tomato;
+  grid-area: cardData;
 }
 
 
-.mainWeatherIcon,
-table {
-  width: 100px;
-  margin: auto;
+
+#cardCity {
+  font-family: Verdana;
+}
+
+#cardDate {
+  background-color: olivedrab;
+  padding: 5px 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 40px;
+
 }

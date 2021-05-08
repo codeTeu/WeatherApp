@@ -32,7 +32,7 @@ export class BodyComponent implements OnInit {
    * retrieves toronto weather by default
    */
   ngOnInit() {
-    this.txtCity = "toronto,ca";
+    this.txtCity = "Toronto,ca";
     this.getWeather(this.toggleIsChecked);
   }
 

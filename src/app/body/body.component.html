@@ -16,7 +16,7 @@
 
 
   <div id="searchBar">
-    <input id="txtCity" type="text" name="txtCity" placeholder="Enter a city" [(ngModel)]="txtCity" required=true>
+    <input id="txtCity" type="text" name="txtCity" placeholder="Ex. Toronto, CA" [(ngModel)]="txtCity" required=true>
     <button (click)="btnReset()" [disabled]="txtCity===''? true:false" id="btnReset">
       <mat-icon>clear</mat-icon>
     </button>

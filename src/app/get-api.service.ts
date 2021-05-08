@@ -8,11 +8,12 @@ import { HttpClient } from '@angular/common/http';
 export class GetApiService {
 
   constructor(private http: HttpClient) { }
+  
+  private key: string = "898c9a34f3f25e07a8dc55a283e8464c";
 
   cityName: string = "Toronto";
   units: string = "metric";
 
-  private key: string = "898c9a34f3f25e07a8dc55a283e8464c";
 
   getWeather(city: string, isFchecked:boolean) {
     this.cityName = city;

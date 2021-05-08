@@ -18,7 +18,7 @@ export class GetApiService {
   getWeather(city: string, isFchecked:boolean) {
     this.cityName = city;
     this.units= isFchecked ==false? "metric":"imperial";
-    return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.cityName}&appid=${this.key}&units=${this.units}
+    return this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.cityName}&appid=${this.key}&units=${this.units}
     `);
   }
 }

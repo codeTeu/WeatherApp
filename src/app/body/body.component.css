@@ -4,10 +4,21 @@
 #header {
   background-color: white;
   padding: 20px 100px 20px 100px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto;
+  grid-template: "logo searchBar btnTemp";
 }
+
+#btnTemp {
+  grid-area: btnTemp;
+  margin: auto;
+}
+
 
 #logo {
   cursor: pointer;
+  grid-area: logo;
 }
 
 #logo img {
@@ -27,13 +38,10 @@
   margin: 5px;
 }
 
-#header #logo,
-#header #searchBar {
-  display: inline-block;
-}
 
 #searchBar {
-  right: auto;
+  grid-area: searchBar;
+  margin: auto;
 }
 
 #searchBar input {
@@ -65,15 +73,22 @@
   background-color: lightseagreen !important;
 }
 
-/* #menu{
-    color: white;
-    background-color: olivedrab;
-    padding:  7px 40px;
-    border-radius:  0  0 15px 15px  ;
-    position: absolute;
-    top: 0px;
+/* #menu {
+  color: white;
+  background-color: olivedrab;
+  padding: 7px 40px;
+  border-radius: 0 0 15px 15px;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 40%;
 } */
 
+#menu a {
+  color: white;
+  text-decoration: none;
+}
 
 
 #btnReset {
@@ -87,12 +102,10 @@
 }
 
 
-
-
 /****** CARD  *******/
 
 #cardWeatherMain {
-  min-width: 300px;
+  min-width: 400px;
   background-color: white;
   border-radius: 20px;
   padding: 30px;
@@ -113,18 +126,17 @@
 }
 
 #cardLocation {
-  background-color: wheat;
   grid-area: cardLocation;
   font-family: 'Montserrat', sans-serif;
-  padding-bottom: 10px;
   text-align: center;
+  min-width: 200px;
 }
 
 #cardLocation #cardCity {
   grid-area: cardCity;
-
   font-weight: 800;
   font-size: 36px;
+  line-height: 60px;
 }
 
 #cardLocation #cardDate {
@@ -136,11 +148,7 @@
   font-size: 12px;
 }
 
-
-
-
 #cardTemp {
-  background-color: snow;
   grid-area: cardTemp;
   text-align: center;
   padding: 0px 20px;
@@ -151,6 +159,7 @@
   color: olivedrab;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+
 }
 
 #cardTemp span:first-child sup {
@@ -159,7 +168,6 @@
 }
 
 #cardIcon {
-  background-color: gainsboro;
   grid-area: cardIcon;
   text-align: center;
 }
@@ -205,22 +213,40 @@
   border: 1px solid black;
   border-collapse: collapse;
   padding: 5px 10px;
+  font-size: 12px;
 }
 
 #table th {
-  font-size: 12px;
   color: white;
 }
 
+#tbTitle img {
+  width: 12px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
 
 #tablePortrait {
   display: none;
 }
 
-@media (orientation: portrait) {
+@media only screen and (max-width: 800px) {
+
+  /****** HEADER MENU *******/
+  #header {
+    background-color: white;
+    padding: 20px 100px 20px 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template:
+      "logo"
+      "searchBar"
+      "btnTemp";
+    justify-items: center;
+  }
 
   /****** CARD  *******/
-
   #cardWeatherMain {
     grid-template-columns: 1fr 1fr;
     grid-row: auto;
@@ -242,4 +268,20 @@
   #tablePortrait {
     display: block;
   }
+
+
+  #cardTemp {
+    padding-top: 20px;
+  }
+
+  #cardTemp span:first-child {
+    font-size: 80px;
+    line-height: 85px;
+  }
+
+  #searchBar {
+    margin: 10px 0 10px 0;
+  }
+
+
 }

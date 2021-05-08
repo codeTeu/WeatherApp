@@ -12,51 +12,81 @@ export class BodyComponent implements OnInit {
   txtCity = "toronto";
 
   //data fetched
-  wdata; 
+  wdata;
 
   //current date
   date = new Date();
 
-  //temp
-  temp;
-  getIcon; 
-  iconSrc;
+  sunrise;
+  sunset;
+  toggleIsChecked = false;
+  wSpeedUnit;
 
-sunrise;
-sunset;
+
 
   constructor(private api: GetApiService) {
 
   }
 
+  /**
+   * retrieves toronto weather by default
+   */
+  ngOnInit() {
+    this.txtCity = "toronto,ca";
+    this.getWeather(this.toggleIsChecked);
+  }
 
-
-
+  /**
+   * checks whether the txtbox has a value, 
+   * if empty, shows error.
+   * otherwise retrieved the data
+   */
   btnGetWeather() {
-    this.getWeather();
+    if (this.txtCity == "") {
+      window.alert("You must input a city");
+      document.getElementById("txtCity").focus();
+    }
+    else {
+      this.getWeather(this.toggleIsChecked);
+    }
+  }
 
-     }
-
-
-  getWeather() {
-    this.api.getWeather(this.txtCity).subscribe((data) => {
-      console.log(data);
+  /**
+   * ajax call, retrieves the json from server
+   * assigns to variables
+   * 
+   * @param toggleIsChecked cunit to use C or F
+   */
+  getWeather(toggleIsChecked: boolean) {
+    this.api.getWeather(this.txtCity, toggleIsChecked).subscribe((data) => {
+      //console.log(data);
       this.wdata = data;
-      
+      this.wSpeedUnit = this.toggleIsChecked == false ? "m/s" : "mi/h";
       this.sunrise = new Date(this.wdata.sys.sunrise * 1000);
       this.sunset = new Date(this.wdata.sys.sunset * 1000);
+
+      document.getElementById("arrowDirH").style.transform = `rotate(${this.wdata.wind.deg}deg)`;
+      document.getElementById("arrowDirV").style.transform = `rotate(${this.wdata.wind.deg}deg)`;
     });
-  
-    
-  
+
   }
 
-  ngOnInit() {
-    this.txtCity = "toronto";
-    this.getWeather();
+
+  /**
+   * erases the textbox and focuses on it
+   */
+  btnReset() {
+    this.txtCity = "";
+    document.getElementById("txtCity").focus();
   }
 
-  // btnReset() {
-  //   this.txtCity = "";
-  // }
+  /**
+   * converts temp to c or F
+   */
+  convertTemp() {
+    this.txtCity = document.getElementById("cardCity").textContent;
+    this.getWeather(this.toggleIsChecked == false ? true : false);
+  }
+
+
 }

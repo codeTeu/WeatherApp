@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './material-ui/material-ui.module';
+import { MaterialModule } from './modules/material-ui/material-ui.module';
 import { BodyComponent } from './body/body.component';
 import { HttpClientModule } from '@angular/common/http';
 

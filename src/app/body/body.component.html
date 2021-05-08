@@ -1,39 +1,43 @@
+
+
+
 <div id="header">
 
+  <!-- <span id="menu">
+    <a href="#">Home</a> |
+    <a href="#">About</a> |
+    <a href="#">Contact</a>
+  </span> -->
+  
   <div id="logo">
     <img src="../assets/images/sun.png" alt="logo">
     <p>WEATHER<br />APP</p>
   </div>
 
-  <!--
-  <span id="menu">
-    <a href="#">Home</a> |
-    <a href="#">About</a> |
-    <a href="#">Contact</a>
-  </span>
--->
-  <form id="searchBar">
-    <input type="text" name="txtCity" placeholder="Enter a city" [(ngModel)]="txtCity" required=true>
-    <button mat-flat-button type="reset" [disabled]="txtCity===''? true:false" id="btnReset">
+
+  <div id="searchBar">
+    <input id="txtCity" type="text" name="txtCity" placeholder="Enter a city" [(ngModel)]="txtCity" required=true>
+    <button (click)="btnReset()" [disabled]="txtCity===''? true:false" id="btnReset">
       <mat-icon>clear</mat-icon>
     </button>
     <button mat-flat-button (click)="btnGetWeather()" id="btnSearch">
       <mat-icon>search</mat-icon>
     </button>
+  </div>
 
-    <!--(click)="btnReset()"-->
-  </form>
-
+  <div id="btnTemp">
+    <label><sup>o</sup>C</label>&nbsp;<mat-slide-toggle [(ngModel)]="toggleIsChecked" (click)="convertTemp()">
+    </mat-slide-toggle>&nbsp;<label><sup>o</sup>F</label>
+  </div>
 </div>
 <!--head done-->
-
 
 <br />
 <br />
 
 <div id="cardWeatherMain">
   <div id="cardLocation">
-    <span id="cardCity">{{wdata.name | uppercase}}</span><br />
+    <span id="cardCity">{{wdata.name | uppercase}}, {{wdata.sys.country}}</span><br />
     <span id="cardDate">{{date | date:'mediumDate'}} &nbsp;|&nbsp; &nbsp;{{date | date:'shortTime'}}</span>
   </div>
 
@@ -52,9 +56,8 @@
 
     <div id="tableLandscape">
       <table id="table">
-        <!--data-->
         <tr id="tbTitle">
-          <th>Speed</th>
+          <th><img id="arrowDirH" src="/assets/images/right-arrow-01.svg" alt="arrow">Speed</th>
           <th>Gust</th>
           <th>Humidity</th>
           <th>Pressure</th>
@@ -62,9 +65,9 @@
           <th>Sunset</th>
         </tr>
         <tr>
-          <td>{{wdata.wind.speed}}</td>
-          <td>{{wdata.wind.gust}}</td>
-          <td>{{wdata.main.humidity}}</td>
+          <td>{{wdata.wind.speed}}<sup [innerHTML]="wSpeedUnit"></sup></td>
+          <td>{{wdata.wind.gust}}<sup [innerHTML]="wSpeedUnit"></sup></td>
+          <td>{{wdata.main.humidity}}%</td>
           <td>{{wdata.main.pressure}}</td>
           <td>{{sunrise | date:'shortTime'}}</td>
           <td>{{sunset | date:'shortTime'}}</td>
@@ -75,14 +78,14 @@
     <div id="tablePortrait">
       <table id="table">
         <tr id="tbTitle">
-          <th>Speed</th>
+          <th><img id="arrowDirV" src="/assets/images/right-arrow-01.svg" alt="arrow">Speed</th>
           <th>Gust</th>
           <th>Humidity</th>
         </tr>
         <tr>
-          <td>{{wdata.wind.speed}}</td>
-          <td>{{wdata.wind.gust}}</td>
-          <td>{{wdata.main.humidity}}</td>
+          <td>{{wdata.wind.speed}}<sup [innerHTML]="wSpeedUnit"></sup></td>
+          <td>{{wdata.wind.gust}}<sup [innerHTML]="wSpeedUnit"></sup></td>
+          <td>{{wdata.main.humidity}}%</td>
         </tr>
       </table>
 
